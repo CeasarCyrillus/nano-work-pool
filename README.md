@@ -1,50 +1,12 @@
-# React + TypeScript + Vite
+## nano-work-pool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This was an experiment with integrating with [nano nodes](https://docs.nano.org/integration-guides/#public-apis)
 
-Currently, two official plugins are available:
+For every transaction on the nano chain, there's a small proof-of-work required.
+This project is aimed to create a public marketplace for consumers and suppliers of work to connect
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### The good
+I liked trying out my [mf-ts library](https://github.com/CeasarCyrillus/mf-ts) more, and discovered a lot of mistakes I made with it, since this was the first time I actually used it for a "real" project,
+so in this codebase I was rewriting it, [here](api/src/mf-ts) 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+See [RPCService](api/src/domain/services/RPCService.ts) and the `generateWork` function for a real life use case
